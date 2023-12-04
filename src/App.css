@@ -40,3 +40,15 @@
 .read-the-docs {
   color: #888;
 }
+
+.gridspan {
+  margin: 1px;
+  padding: 2px;
+  border: 1px lightgray solid;
+}
+
+.grid {
+  margin-top: 20px;
+  padding-top: 5px;
+  border-top: 4px solid red;
+}
