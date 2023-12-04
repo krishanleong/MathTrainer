@@ -5,30 +5,31 @@ import CalcButton from "./CalcButton";
 import Problem from "./Problem";
 import { useEffect } from "react";
 
-let left = 5;
-let right = 3;
-
 function App() {
-  const [answer, setAnswer] = useState(3 + 5);
+  const [left, setLeft] = useState(3);
+  const [right, setRight] = useState(5);
 
   const [guess, setGuess] = useState(0);
+  useEffect(() => {
+    console.log("Guess start: ", guess);
+    if (left + right === guess) {
+      console.log("Correct Answer");
 
-  function checkAnswer(g) {
-    console.log("answer", answer, "guess", g);
-
-    setGuess((guess) => guess * 10 + g);
-
-    if (answer === g) {
-      console.log("Correst Answer");
-
-      left = Math.floor(Math.random() * 1 + 1);
-      right = Math.floor(Math.random() * 10 + 1);
-      setAnswer(Math.floor(left + right));
+      setLeft(Math.floor(Math.random() * 9 + 1));
+      setRight(Math.floor(Math.random() * 6 + 1));
+      setGuess(0);
     } else {
-      if (answer < 10) {
+      if (left + right < 10 || guess > 10) {
         setGuess(0);
       }
     }
+    console.log("Guess end: ", guess);
+  }, [guess, left, right]);
+  function checkAnswer(g) {
+    console.log("answer", left + right, "guess", g);
+
+    console.log("Guess clacl", guess * 10 + g);
+    setGuess((guess) => guess * 10 + g);
   }
 
   return (
