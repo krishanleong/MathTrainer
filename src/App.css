@@ -54,3 +54,8 @@ body {
   padding-top: 5px;
   border-top: 4px solid red;
 }
+
+.calcButton {
+  width: 100%;
+  aspect-ratio: 1/1;
+}

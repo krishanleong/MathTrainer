@@ -1,3 +1,4 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./CalcButton.css";
 
 export default function CalcButton({ number, check }) {
@@ -6,12 +7,14 @@ export default function CalcButton({ number, check }) {
     check(number);
   }
   return (
-    <button
-      onClick={handleClick}
-      className="btn btn-large col-3"
-      value={number}
-    >
-      {number}
-    </button>
+    <div className="d-inline col-4 ">
+      <button
+        onClick={handleClick}
+        className="btn btn-large btn-success col-3 calcButton"
+        value={number}
+      >
+        {number}
+      </button>
+    </div>
   );
 }

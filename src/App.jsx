@@ -1,3 +1,4 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import Grid from "./Grid";
 import { useState } from "react";
 import "./App.css";
@@ -51,16 +52,16 @@ function App() {
   }
 
   return (
-    <>
+    <div className="container">
       <h1>Math Trainer</h1>
       <Problem left={left} right={right} />
-      <div className="calcButtons row">
+      <div className="row">
         {Array.from({ length: 10 }, (_, i) => (
           <CalcButton number={i} check={checkAnswer} key={i} />
         ))}
       </div>
       <Grid />
-    </>
+    </div>
   );
 }
 
