@@ -28,11 +28,14 @@ function App() {
   useEffect(() => {
     console.log("Guess start: ", guess);
     if (left + right === guess) {
-      console.log("Correct Answer");
+      console.log("In Correct Answer");
       //   setData ((data.map((row, x) => (
-      //       {row.map((element, y) => (
-
-      //   })
+      //          row.map((element, y) => () {
+      //           if (x===left && y === right)
+      //           return element+1;
+      //         else return element;
+      //          })
+      //      ))));
 
       setLeft(Math.floor(Math.random() * 9 + 1));
       setRight(Math.floor(Math.random() * 6 + 1));

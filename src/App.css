@@ -57,5 +57,7 @@ body {
 
 .calcButton {
   width: 100%;
+  color: black;
+  font-size: xx-large;
   aspect-ratio: 1/1;
 }
