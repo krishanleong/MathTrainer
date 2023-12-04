@@ -6,7 +6,11 @@ export default function CalcButton({ number, check }) {
     check(number);
   }
   return (
-    <button onClick={handleClick} className="btn" value={number}>
+    <button
+      onClick={handleClick}
+      className="btn btn-large col-3"
+      value={number}
+    >
       {number}
     </button>
   );

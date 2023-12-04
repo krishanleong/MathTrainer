@@ -5,7 +5,21 @@ import CalcButton from "./CalcButton";
 import Problem from "./Problem";
 import { useEffect } from "react";
 
+const initialData = [
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+];
+
 function App() {
+  const [data, setData] = useState(initialData);
   const [left, setLeft] = useState(3);
   const [right, setRight] = useState(5);
 
@@ -14,6 +28,10 @@ function App() {
     console.log("Guess start: ", guess);
     if (left + right === guess) {
       console.log("Correct Answer");
+      //   setData ((data.map((row, x) => (
+      //       {row.map((element, y) => (
+
+      //   })
 
       setLeft(Math.floor(Math.random() * 9 + 1));
       setRight(Math.floor(Math.random() * 6 + 1));
@@ -28,7 +46,7 @@ function App() {
   function checkAnswer(g) {
     console.log("answer", left + right, "guess", g);
 
-    console.log("Guess clacl", guess * 10 + g);
+    console.log("Guess calc", guess * 10 + g);
     setGuess((guess) => guess * 10 + g);
   }
 
@@ -36,9 +54,11 @@ function App() {
     <>
       <h1>Math Trainer</h1>
       <Problem left={left} right={right} />
-      {Array.from({ length: 10 }, (_, i) => (
-        <CalcButton number={i} check={checkAnswer} key={i} />
-      ))}
+      <div className="calcButtons row">
+        {Array.from({ length: 10 }, (_, i) => (
+          <CalcButton number={i} check={checkAnswer} key={i} />
+        ))}
+      </div>
       <Grid />
     </>
   );
